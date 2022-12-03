@@ -1,9 +1,19 @@
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import { DashBoard } from "./pages/Dashboard";
+import { Login } from "./pages/Login";
+import { Register } from "./pages/Register";
 
+const App = () => {
+  const [user, setUser] = useState("")
 
-function App() {
   return (
-    <div className="App">
-    </div>
+    <Routes>
+      <Route path="/login" element={ <Login setUser={setUser}/>}/>
+      <Route path="/register" element={ <Register/> } />
+      <Route path="/dashboard" element={ <DashBoard user={user}/> }/>
+      <Route path="*" element={ <Login/>}/>
+    </Routes>
   );
 }
 
