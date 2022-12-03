@@ -13,8 +13,8 @@ import logo from "../../img/Logo.svg";
 
 export const Login = ({ user, setUser }) => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false)
- 
+  const [loading, setLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -25,19 +25,19 @@ export const Login = ({ user, setUser }) => {
   });
 
   const onSubmitForm = async (data) => {
-   
     try {
       const response = await api.post("sessions", data);
-      toast.success("Login efetuado com sucesso!")
-      setUser(response.data.user)
-      window.localStorage.setItem("@TOKEN", JSON.stringify(response.data.token))
-      window.localStorage.setItem("@USERID", JSON.stringify(response.data.user.id))
-      navigate("/dashboard")
+      toast.success("Login efetuado com sucesso!");
+      setUser(response.data.user);
+      localStorage.setItem("@TOKEN", JSON.stringify(response.data.token));
+      localStorage.setItem("@USERID", JSON.stringify(response.data.user.id));
+      navigate("/dashboard");
     } catch (error) {
       console.log(error);
-      toast.error("Ops! Algo deu errado")
+      toast.error("Ops! Algo deu errado");
     }
   };
+
 
   return (
     <StyleLogin>
@@ -71,7 +71,11 @@ export const Login = ({ user, setUser }) => {
 
         <p>Ainda não possui uma conta?</p>
 
-        <Button type={"button"} onClick={()=> navigate("/register")} name={"Cadastre-se"} />
+        <Button
+          type={"button"}
+          onClick={() => navigate("/register")}
+          name={"Cadastre-se"}
+        />
       </Form>
     </StyleLogin>
   );
