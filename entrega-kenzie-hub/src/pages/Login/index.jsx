@@ -39,9 +39,6 @@ export const Login = ({ user, setUser }) => {
     }
   };
 
-  // pedro5656@gmail.com
-  // 12345678j@
-
   return (
     <StyleLogin>
       <header>
