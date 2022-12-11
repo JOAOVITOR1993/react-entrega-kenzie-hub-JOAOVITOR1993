@@ -1,20 +1,20 @@
-import { useState } from "react";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
-import { api } from "../../services/api";
-import { loginSchema } from "./loginSchema";
 import { Form } from "../../components/Form";
 import { StyleLogin } from "./styles";
 import logo from "../../img/Logo.svg";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { loginSchema } from "../Login/loginSchema";
 
-export const Login = ({ user, setUser }) => {
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(false)
- 
+export const Login = () => {
+  const { 
+    onSubmitFormLogin, 
+    navigate
+  } = useContext(UserContext)
+
   const {
     register,
     handleSubmit,
@@ -24,21 +24,6 @@ export const Login = ({ user, setUser }) => {
     resolver: yupResolver(loginSchema),
   });
 
-  const onSubmitForm = async (data) => {
-   
-    try {
-      const response = await api.post("sessions", data);
-      toast.success("Login efetuado com sucesso!")
-      setUser(response.data.user)
-      window.localStorage.setItem("@TOKEN", JSON.stringify(response.data.token))
-      window.localStorage.setItem("@USERID", JSON.stringify(response.data.user.id))
-      navigate("/dashboard")
-    } catch (error) {
-      console.log(error);
-      toast.error("Ops! Algo deu errado")
-    }
-  };
-
   return (
     <StyleLogin>
       <header>
@@ -46,7 +31,7 @@ export const Login = ({ user, setUser }) => {
           <img src={logo} alt="Logo" />
         </figure>
       </header>
-      <Form onSubmit={handleSubmit(onSubmitForm)}>
+      <Form onSubmit={handleSubmit(onSubmitFormLogin)}>
         <h2>Login</h2>
 
         <Input
@@ -71,7 +56,11 @@ export const Login = ({ user, setUser }) => {
 
         <p>Ainda não possui uma conta?</p>
 
-        <Button type={"button"} onClick={()=> navigate("/register")} name={"Cadastre-se"} />
+        <Button
+          type={"button"}
+          onClick={() => navigate("/register")}
+          name={"Cadastre-se"}
+        />
       </Form>
     </StyleLogin>
   );

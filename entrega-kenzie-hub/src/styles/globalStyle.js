@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
   --color-primary-negative:  #59323F;
   --color-negative: #E83F5B;
   --color-sucess: #3FE864;
+  --color-background-modal: rgba(0, 0, 0, 0.2);
   
   --font-size-0: 1.62rem;
   --font-size-1: 1.12rem;
@@ -45,5 +46,10 @@ body{
   margin: 0 auto;
   padding: 0 1rem;
 }
+
+.pError {
+    text-align: center;
+    color: var(--color-negative);
+  }
 
 `

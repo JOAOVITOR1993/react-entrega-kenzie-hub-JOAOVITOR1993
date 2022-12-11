@@ -1,7 +1,7 @@
 import { Label } from "../Label";
 import { StyledInput } from "./styles";
 
-export const Input = ({ type, placeholder, id, textLabel, register }) => {
+export const Input = ({ type, placeholder, id, textLabel, register, defaultValue }) => {
   return (
     <StyledInput>
       <Label htmlFor={id} textLabel={textLabel}/>
@@ -10,6 +10,7 @@ export const Input = ({ type, placeholder, id, textLabel, register }) => {
         type={type}
         placeholder={placeholder}
         {...register}
+        defaultValue={defaultValue}
       />
     </StyledInput>
   );
