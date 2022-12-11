@@ -70,4 +70,9 @@ export const Modal = styled.div`
     background-color: var(--color-primary-focus);
     transition: 0.6s
   }
+
+  @media (max-width: 769px) {
+    max-width: 100%;
+    margin: 0 1rem;
+  }
 `
