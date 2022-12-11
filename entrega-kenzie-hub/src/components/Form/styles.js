@@ -27,11 +27,6 @@ export const StyledForm = styled.form`
     color: var(--color-grey-1);
   }
 
-  .pError {
-    text-align: center;
-    color: var(--color-negative);
-  }
-
   select {
     width: 100%;
     margin: 1rem 0;
@@ -66,8 +61,4 @@ export const StyledForm = styled.form`
     transition: 0.6s
 }
 
-  @media (max-width: 769px) {
-
-    
-  }
 `;
