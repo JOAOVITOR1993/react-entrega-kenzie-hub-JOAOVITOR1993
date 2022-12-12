@@ -52,11 +52,12 @@ export const Login = () => {
         />
         {errors.password && <p className="pError">{errors.password.message}</p>}
 
-        <Button type={"submit"} name={"Entrar"} />
+        <Button className={"buttonPrimary"} type={"submit"} name={"Entrar"} />
 
         <p>Ainda não possui uma conta?</p>
 
         <Button
+          className={"buttonGrey2 "}
           type={"button"}
           onClick={() => navigate("/register")}
           name={"Cadastre-se"}

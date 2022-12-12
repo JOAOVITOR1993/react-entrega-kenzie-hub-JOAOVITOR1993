@@ -101,6 +101,11 @@ export const Modal = styled.div`
     transition: 0.6s
   }
 
+  .pError {
+    text-align: center;
+    color: var(--color-negative);
+  }
+
   @media (max-width: 769px) {
     max-width: 100%;
     margin: 0 1rem;

@@ -39,26 +39,31 @@ export const StyledForm = styled.form`
     cursor: pointer;
   }
 
-  button {
+  .buttonPrimary {
     margin: 1.25rem 0 0.5rem 0;
     background-color: var(--color-primary);
     transition: 0.6s
   }
 
-  button:hover {
+  .buttonPrimary:hover {
     background-color: var(--color-primary-focus);
     transition: 0.6s
   }
 
-  button:nth-child(6) {
+   .buttonGrey2 {
     margin: 1.25rem 0 0.5rem 0;
     background-color: var(--color-grey-1);
     transition: 0.6s
   }
 
-  button:nth-child(6):hover{
+   .buttonGrey2:hover{
     background-color: var(--color-grey-2);
     transition: 0.6s
 }
+
+.pError {
+    text-align: center;
+    color: var(--color-negative);
+  }
 
 `;
