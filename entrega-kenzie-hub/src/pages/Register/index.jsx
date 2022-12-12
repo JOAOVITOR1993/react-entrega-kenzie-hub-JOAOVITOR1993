@@ -97,7 +97,7 @@ export const Register = () => {
           <p className="pError">{errors.course_module.message}</p>
         )}
 
-        <Button type={"submit"} name={"Cadastrar"} />
+        <Button className={"buttonPrimary"} type={"submit"} name={"Cadastrar"} />
       </Form>
     </StyleRegister>
   );

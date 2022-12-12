@@ -47,9 +47,5 @@ body{
   padding: 0 1rem;
 }
 
-.pError {
-    text-align: center;
-    color: var(--color-negative);
-  }
 
 `
