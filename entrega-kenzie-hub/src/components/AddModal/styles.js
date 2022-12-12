@@ -17,7 +17,7 @@ export const Modal = styled.div`
   width: 100%;
   border-radius: var(--radius);
 
-  div{
+  > div{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,11 +27,11 @@ export const Modal = styled.div`
     background-color: var(--color-grey-2);
   }
 
-  div h1{
+  > div h1{
     font-size: var(--font-size-3);
   }
 
-  div button{
+  > div button{
     color: var(--color-grey-1);
     width: auto;
     padding: 0;
@@ -39,7 +39,7 @@ export const Modal = styled.div`
     transition: 0.6s;
   }
 
-  div button:hover{
+  > div button:hover{
     color: var(--color-grey-0);
     transition: 0.6s;
   }
@@ -60,6 +60,12 @@ export const Modal = styled.div`
     cursor: pointer;
   }
 
+  form div{
+    display: flex;
+    justify-content: space-between;
+    gap: 1.37rem;
+  }
+
   form button {
     margin: 1.25rem 0 0.5rem 0;
     background-color: var(--color-primary);
@@ -71,8 +77,45 @@ export const Modal = styled.div`
     transition: 0.6s
   }
 
+  form div button:nth-child(1) {
+    width: 12.75rem;
+    margin: 1.25rem 0 0.5rem 0;
+    background-color: var(--color-primary);
+    transition: 0.6s
+  }
+
+  form div button:nth-child(1):hover {
+    background-color: var(--color-primary-focus);
+    transition: 0.6s
+  }
+
+  form div button:nth-child(2) {
+    width: 6.12rem;
+    margin: 1.25rem 0 0.5rem 0;
+    background-color: var(--color-grey-1);
+    transition: 0.6s
+  }
+
+  form div button:nth-child(2):hover {
+    background-color: var(--color-grey-2);
+    transition: 0.6s
+  }
+
   @media (max-width: 769px) {
     max-width: 100%;
     margin: 0 1rem;
+
+    form div{
+    flex-direction: column;
+    gap: 0;
+  }
+
+  form div button:nth-child(1) {
+    width:100%;
+  }
+
+  form div button:nth-child(2) {
+    width:100%;
+  }
   }
 `

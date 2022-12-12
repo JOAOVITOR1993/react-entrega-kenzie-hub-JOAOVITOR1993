@@ -4,13 +4,18 @@ import { UserContext } from "../../contexts/UserContext";
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { Button } from "../../components/Button";
-import trash from "../../img/Trash.svg";
 import { TechContext } from "../../contexts/TechContext";
 import { ModalCreateTech } from "../../components/AddModal/ModalCreateTech";
+import { ModalUpdateTech } from "../../components/AddModal/ModalUpdateTech";
 
 export const DashBoard = () => {
   const { user, loading } = useContext(UserContext);
-  const { openModalCreateTech, setOpenModalCreateTech, deleteTechnology } = useContext(TechContext);
+  const {
+    openModalCreateTech,
+    setOpenModalCreateTech,
+    openModalUpdateTech,
+    setDefaultValuesUpdateTech,
+  } = useContext(TechContext);
 
   const logout = () => {
     localStorage.clear();
@@ -42,19 +47,10 @@ export const DashBoard = () => {
           {user.techs.map((element) => {
             const { id, title, status } = element;
             return (
-              <li key={id}>
+              <li key={id} onClick={() => setDefaultValuesUpdateTech(id)}>
                 <h4>{title}</h4>
                 <div>
                   <p>{status}</p>
-                  <Button
-                    type={"button"}
-                    onClick={() => deleteTechnology(id)}
-                    name={
-                      <figure>
-                        <img src={trash} alt="Trash" />
-                      </figure>
-                    }
-                  />
                 </div>
               </li>
             );
@@ -62,6 +58,7 @@ export const DashBoard = () => {
         </ul>
       </section>
       {openModalCreateTech && <ModalCreateTech />}
+      {openModalUpdateTech && <ModalUpdateTech />}
     </StyledDashBoard>
   ) : (
     <Navigate to={"/login"} />
